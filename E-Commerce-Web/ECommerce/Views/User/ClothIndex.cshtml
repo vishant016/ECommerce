@@ -1,0 +1,187 @@
+﻿@model IEnumerable<Entity.Cloth>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="~/wwwroot/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="~/wwwroot/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/wwwroot/fonts/iconic/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="~/wwwroot/images/icons/favicon.ico" />
+    <!--===============================================================================================-->
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/wwwroot/vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/wwwroot/vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/wwwroot/vendor/animsition/css/animsition.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/wwwroot/vendor/select2/select2.min.css">
+
+
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/wwwroot/vendor/daterangepicker/daterangepicker.css">
+
+    <link rel="stylesheet" type="text/css" href="~/wwwroot/css/util.css">
+    <link rel="stylesheet" type="text/css" href="~/wwwroot/css/main.css">
+
+
+    <title>BookIndex</title>
+</head>
+<body style="        background-color: lightpink;
+
+        overflow-x: hidden;">
+
+    <div class="row" style="background-color:palevioletred">
+
+        <nav class="mb-1 navbar navbar-expand-lg navbar-dark ">
+            <div class="col-sm-2">
+                <a class="navbar-brand" href="#">Navbar</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4" aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+            <div class="col-sm-12"></div>
+            <div class="col-sm-12"></div>
+            <div class="col-sm-12">
+
+                <div class="collapse navbar-collapse " id="navbarSupportedContent-4">
+                    <ul class="navbar-nav ml-auto">
+
+
+
+                        <li class="nav-item active">
+                            <a class="nav-link waves-effect waves-light" href="http://localhost:33917/User/ViewCart" onClick="document.myForm.submit();return false">
+                                <i class="fa fa-user"></i><b style="font-style:italic;font-size:larger;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;color:green"> @Session["username"]</b> &nbsp;&nbsp;&nbsp; </i>
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+
+                        @*<li class="nav-item active">
+
+                                <a class="nav-link waves-effect waves-light" method="post" href="http://localhost:33917/User/ViewCart/">
+                                    <i class="fa fa-envelope"></i> View Cart
+
+                                </a>
+
+                            </li>*@
+
+                        @using (Html.BeginForm("ViewCart", "User", FormMethod.Post))
+                        {
+
+
+                            <li class="nav-item active" style="background-color:hotpink">
+                                <button type="submit" style="font-size:large" class="waves-effect waves-light nav-link btn-link" name="check" value="View Cart"><b>View Cart</b></button>
+                            </li>
+                        }
+
+                        <li class="nav-item dropdown active">
+                            <a class="nav-link dropdown-toggle " id="navbarDropdownMenuLink-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <b style="font-size:large">&nbsp;&nbsp;&nbsp;Browse</b>
+                            </a>
+                            <div class="dropdown-menu alert-success " aria-labelledby="navbarDropdownMenuLink-4">
+                                <a class="dropdown-item" href="http://localhost:33917/User/BookIndex"><b>Browse Books</b></a>
+                                <a class="dropdown-item " href="http://localhost:33917/User/ClothIndex"><b>Browse Cloths</b></a>
+                            </div>
+                        </li>
+                        <li class="nav-item  active ">
+                            <a class="nav-link waves-effect waves-light" href="http://localhost:33917/User/Logout">
+                                &nbsp;&nbsp;&nbsp;<i class="fa fa-gear"></i> <b style="font-size:large"> Logout</b>
+                            </a>
+                        </li>
+
+
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+
+
+    @if (@TempData["success"] != null)
+    {
+        <script type="text/javascript">
+                window.alert("@TempData["success"]");
+        </script>
+    }
+
+    <div class="container">
+
+        @using (Html.BeginForm(FormMethod.Post))
+        {
+
+            <span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;</span>
+            <table width="1200" border="1" style="border-right-style:solid;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-size:medium;position:center">
+                <tr style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-size:larger;background-color:deeppink">
+                    <span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;</span>
+                    <th>
+                        <b> Name</b>
+                    </th>
+                    <th>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Price</b>
+                    </th>
+                   
+                    <th>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <b>Type</b>
+                    </th>
+                    <th>
+                        <b> Image</b>
+                    </th>
+                    <th>
+                        <b> Quantity</b>
+                    </th>
+                    <th>
+                        <b>  Add</b>
+                    </th>
+                    <th></th>
+                </tr>
+
+                <font color="red"> @ViewBag.errorMessage </font>
+
+                @foreach (var item in Model)
+                {
+                    <tr style="background-color:pink;font-size:large;">
+                        <td>
+                            <span> @item.Name</span>
+                        </td>
+                        <td>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; @item.Price
+                        </td>
+                        
+                        <td>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  @item.Type
+                        </td>
+                        <td>
+                            <img src="@item.ImagePath" style="border-radius:10%" height="200" width="350" />
+                        </td>
+                        <td style="font-size:small">
+                            <input type="number" style="background-color:#eeb6d8;border-radius:40%" class="input100" name="quantity" placeholder="Enter Quantity" value="1" />
+                        </td>
+                        <td>
+
+                            <button type="submit" class="login100-form-btn" value="Add to cart Id.@item.Id" name="add">Add to cart Id.@item.Id</button>
+                        </td>
+                    </tr>
+
+                }
+
+            </table>
+
+        }
+    </div>
+
+</body>
+</html>

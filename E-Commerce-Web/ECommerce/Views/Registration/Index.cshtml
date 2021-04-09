@@ -1,0 +1,227 @@
+﻿@model Entity.User
+
+@{
+    Layout = null;
+}
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Registration</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="~/wwwroot/images/icons/favicon.ico" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/wwwroot/vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/wwwroot/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/wwwroot/fonts/iconic/css/material-design-iconic-font.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/wwwroot/vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/wwwroot/vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/wwwroot/vendor/animsition/css/animsition.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/wwwroot/vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/wwwroot/vendor/daterangepicker/daterangepicker.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/wwwroot/css/util.css">
+    <link rel="stylesheet" type="text/css" href="~/wwwroot/css/main.css">
+    <!--===============================================================================================-->
+</head>
+<body>
+
+
+    <div class="container-login100" style="background-image: url('~/wwwroot/images/bg-01.jpg');">
+        <div class="wrap-login100 p-l-55 p-r-55 p-t-80 p-b-30">
+            <form class="login100-form validate-form" method="post">
+                <span class="login100-form-title p-b-37">
+                    Sign In
+                </span>
+
+                <div class="wrap-input100 validate-input m-b-20" data-validate="Enter username ">
+                    <input class="input100" type="text" name="Username" placeholder="username">
+                    <span class="focus-input100"></span>
+                </div>
+                <div class="wrap-input100 validate-input m-b-20" data-validate="Enter  email">
+                    <input class="input100" type="text" name="Email" placeholder=" email">
+                    <span class="focus-input100"></span>
+                </div>
+                <div class="wrap-input100 validate-input m-b-25" data-validate="Enter password">
+                    <input class="input100" type="password" name="Password" placeholder="password">
+                    <span class="focus-input100"></span>
+                </div>
+                <div id="from-datepicker" class="wrap-input100 validate-input m-b-20 input-append date " data-validate="MM/dd/YYYY">
+                    <input class="input100" name="DateOfBirth" data-format="dd/MM/yyyy" type="text" placeholder="Date of Birth">
+                    <span class="focus-input100 add-on" />
+                </div>
+
+                <div class="container-login100-form-btn">
+                    <button type="submit" class="login100-form-btn">
+                        Register
+                    </button>
+                </div>
+
+                <br />
+
+                <div class="text-center">
+                    <a href="@Url.Action("Index", "Login")">
+                        Login
+                        <br />
+                </div>
+            </form>
+            <br />
+            <span color="red"><b> @ViewBag.errorMessage</b></span>
+
+            @*@if (ViewBag.errorMessage != null)
+        {
+            <span></span> <font color="red"><b> @ViewBag.errorMessage</b> </font>
+        }
+
+        @if (@TempData["msg"] != null)
+        {
+            <script type="text/javascript">
+            window.alert("@TempData["msg"]");
+            </script>
+        }
+
+        @if (ViewBag.loginError != null)
+        {
+            <span>  &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp;</span> <font color="red"><b> @ViewBag.loginError</b> </font>
+        }*@
+        </div>
+    </div>
+
+
+
+    <div id="dropDownSelect1"></div>
+
+    <!--===============================================================================================-->
+    <script src="~/wwwroot/vendor/jquery/jquery-3.2.1.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/wwwroot/vendor/animsition/js/animsition.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/wwwroot/vendor/bootstrap/js/popper.js"></script>
+    <script src="~/wwwroot/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/wwwroot/vendor/select2/select2.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/wwwroot/vendor/daterangepicker/moment.min.js"></script>
+    <script src="~/wwwroot/vendor/daterangepicker/daterangepicker.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/wwwroot/vendor/countdowntime/countdowntime.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/wwwroot/js/main.js"></script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*<!DOCTYPE html>
+
+    <html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>Index</title>
+    </head>
+    <body>
+        <script src="~/Scripts/jquery-1.7.1.min.js"></script>
+        <script src="~/Scripts/jquery.validate.min.js"></script>
+        <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+        @using (Html.BeginForm())
+        {
+            @Html.ValidationSummary(true)
+
+            <fieldset>
+                <legend>User</legend>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Username)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Username)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Email)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Email)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Password)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", placeholder = "Password" } })
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.DateOfBirth)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.DateOfBirth) Format : (MM/dd/YYYY)
+                </div>
+
+                <p>
+                    <input type="submit" value="Register" />
+                </p>
+            </fieldset>
+        }
+
+        <div>
+            <font color="red">
+
+                @Html.ValidationMessageFor(model => model.Username) <br />
+                @Html.ValidationMessageFor(model => model.Email) <br />
+                @Html.ValidationMessageFor(model => model.Password) <br />
+
+         @Html.ValidationMessageFor(model => model.DateOfBirth)
+                @ViewBag.errorMessage
+            </font>
+        </div>
+
+        <div>
+            <a href="@Url.Action("Index", "Login")">Back To Login</a>
+        </div>
+    </body>
+    </html>*@

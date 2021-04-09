@@ -1,0 +1,120 @@
+﻿@model Entity.Book
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="~/Scripts/jquery-1.7.1.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="~/wwwroot/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="~/wwwroot/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/wwwroot/fonts/iconic/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="~/wwwroot/images/icons/favicon.ico" />
+    <!--===============================================================================================-->
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/wwwroot/vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/wwwroot/vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/wwwroot/vendor/animsition/css/animsition.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/wwwroot/vendor/select2/select2.min.css">
+
+
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/wwwroot/vendor/daterangepicker/daterangepicker.css">
+
+    <link rel="stylesheet" type="text/css" href="~/wwwroot/css/util.css">
+    <link rel="stylesheet" type="text/css" href="~/wwwroot/css/main.css">
+    <title>Create</title>
+</head>
+<body style="        background-color: lightpink;
+
+        overflow-x: hidden;">
+
+    <div class="container-login100">
+        <div class="wrap-login100 p-l-55 p-r-55 p-t-30 p-b-300">
+            <form class="login100-form validate-form" enctype="multipart/form-data" method="post">
+
+                <span class="login100-form-title p-b-20">
+                    Are you sure want to delete???
+                </span>
+                <div class="row container-login100-form-btn">
+                    <div class="col-sm-6 input100">
+                        <b style="font-size:xx-large"> @Html.ActionLink("Back to List", "Index")</b>
+
+                    </div>
+                    <div class="col-sm-6">
+                        <button type="submit" value="Delete" class="login100-form-btn">
+                            Delete
+                        </button>
+                    </div>
+                </div>
+
+
+                Name
+                <div class="wrap-input100 validate-input m-b-20" data-validate="Enter name">
+                    <input class="input100" type="text" name="Name" placeholder="Name" value=" @Model.Name">
+                    <span class="focus-input100"></span>
+                </div>
+                Price
+                <div class="wrap-input100 validate-input m-b-25" data-validate="Enter price">
+                    <input class="input100" type="text" name="Price" placeholder="Price" value=" @Model.Price">
+                    <span class="focus-input100"></span>
+                </div>
+                Author
+                <div class="wrap-input100 validate-input m-b-25" data-validate="Enter type">
+                    <input class="input100" type="text" name="Type" placeholder="type" value="@Model.Author">
+                    <span class="focus-input100"></span>
+                </div>
+                Type
+                <div class="wrap-input100 validate-input m-b-25" data-validate="Enter type">
+                    <input class="input100" type="text" name="Type" placeholder="type" value="@Model.Type">
+                    <span class="focus-input100"></span>
+                </div>
+                Image:
+                
+                    @* <label for="file">Upload File:</label><input class="input100" type="file" name="file" id="file" accept="image/*" onchange="loadFile(event)" />*@
+
+                    <script>
+                        var loadFile = function (event) {
+                            var output = document.getElementById('output');
+                            output.src = URL.createObjectURL(event.target.files[0]);
+                        };
+                    </script>
+                
+                <img src="@Model.ImagePath" id="output" width="200" height="200" />
+
+                <br />
+
+
+
+                <br />
+
+
+
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+
+
+</body>
+</html>

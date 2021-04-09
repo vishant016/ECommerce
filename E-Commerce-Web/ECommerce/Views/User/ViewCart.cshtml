@@ -1,0 +1,227 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="~/wwwroot/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="~/wwwroot/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/wwwroot/fonts/iconic/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="~/wwwroot/images/icons/favicon.ico" />
+    <!--===============================================================================================-->
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/wwwroot/vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/wwwroot/vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/wwwroot/vendor/animsition/css/animsition.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/wwwroot/vendor/select2/select2.min.css">
+
+
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/wwwroot/vendor/daterangepicker/daterangepicker.css">
+
+    <link rel="stylesheet" type="text/css" href="~/wwwroot/css/util.css">
+    <link rel="stylesheet" type="text/css" href="~/wwwroot/css/main.css">
+
+
+    <title>
+        ViewCart
+    </title>
+</head>
+<body style="        background-color: lightpink;
+
+        overflow-x: hidden;">
+
+    <div class="row" style="background-color:palevioletred">
+
+        <nav class="mb-1 navbar navbar-expand-lg navbar-dark ">
+            <div class="col-sm-2">
+                <a class="navbar-brand" href="#">Home</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4" aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+
+            <div class="col-sm-12"></div>
+            <div class="col-sm-12"></div>
+            <div class="col-sm-12">
+
+                <div class="collapse navbar-collapse " id="navbarSupportedContent-4">
+                    <ul class="navbar-nav ml-auto">
+
+
+
+                        <li class="nav-item active">
+                            <a class="nav-link waves-effect waves-light" href="#" onClick="document.myForm.submit();return false">
+                                <i class="fa fa-user"></i><b style="font-style:italic;font-size:larger;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;color:green"> @Session["username"]</b> &nbsp;&nbsp;&nbsp; </i>
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+
+                        @*<li class="nav-item active">
+
+                                <a class="nav-link waves-effect waves-light" method="post" href="http://localhost:33917/User/ViewCart/">
+                                    <i class="fa fa-envelope"></i> View Cart
+
+                                </a>
+
+                            </li>*@
+
+                        @using (Html.BeginForm(FormMethod.Post))
+                        {
+
+
+                            <li class="nav-item active" style="background-color:hotpink;border-radius:10%">
+                                <button type="submit" style="font-size:large" class=" waves-effect waves-light nav-link " name="shop" value="Ship"><b>Ship</b></button>
+                            </li>
+                        }   
+
+                        <li class="nav-item dropdown active">
+                            <a class="nav-link waves-effect waves-light" href="http://localhost:33917/User/BookIndex"><b style="font-size:large"> Back To Shopping</b></a>
+
+                        </li>
+                        <li class="nav-item  active ">
+                            <a class="nav-link waves-effect waves-light" href="http://localhost:33917/User/Logout">
+                                &nbsp;&nbsp;<i class="fa fa-gear"></i> <b style="font-size:large"> Logout</b>
+                            </a>
+                        </li>
+
+
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+
+    <div class="container">
+
+        <span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;</span>
+
+        @if (@ViewBag.warning != null)
+        {
+            Response.Redirect("http://localhost:33917/User/BookIndex");
+            
+        }
+        @if (ViewBag.Total != 0 )
+        {
+
+            <table width="1200" border="1" style="border-right-style:solid;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-size:medium;position:center">
+                <tr style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-size:larger;background-color:deeppink">
+                    <span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp;</span>
+                    <span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp;</span>
+                    <span> &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp;</span>
+                    @*<input type="submit" name="shop" value="Ship" />*@
+                    <span> &nbsp; &nbsp; &nbsp; &nbsp;</span>
+
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Type
+                    </th>
+                    <th>
+                        Image
+                    </th>
+                    <th>
+                        Price
+                    </th>
+                    <th>
+                        Quantity
+                    </th>
+                    <th>
+                        Total Price
+                    </th>
+                    <th></th>
+                </tr>
+
+
+
+                <div class="row">
+                    <div class="col-sm-12"> <b style="text-align:center;font-size:xx-large;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;color:forestgreen" ;><marquee behavior="scroll" direction="left">Total  = @ViewBag.Total /- </marquee></b></div>
+                </div>
+                @if (@ViewBag.warning == null)
+                {
+                    if (ViewBag.bList != null || ViewBag.cList != null)
+                    {
+                        foreach (var book in ViewBag.bList)
+                        {
+                            <tr style="background-color:pink;font-size:large;">
+                                <td>
+                                    @book.Name
+                                </td>
+                                <td>
+                                    @book.Type
+                                </td>
+                                <td>
+                                    <img src="@book.ImagePath" style="border-radius:10%" height="200" width="350" />
+                                </td>
+                                <td>
+                                    @book.Price
+                                </td>
+                                <td>
+                                    @book.Quantity
+                                </td>
+                                <td>
+                                    @book.TotalPrice
+                                </td>
+                            </tr>
+                        }
+
+
+                        foreach (var cloth in ViewBag.cList)
+                        {
+                            <tr style="background-color:pink;font-size:large;">
+                                <td>
+                                    @cloth.Name
+                                </td>
+                                <td>
+                                    @cloth.Type
+                                </td>
+                                <td>
+                                    <img src="@cloth.ImagePath" style="border-radius:10%" height="200" width="350" />
+                                </td>
+                                <td>
+                                    @cloth.Price
+                                </td>
+                                <td>
+                                    @cloth.Quantity
+                                </td>
+                                <td>
+                                    @cloth.TotalPrice
+                                </td>
+                            </tr>
+                        }
+                    }
+
+                }
+
+            </table>
+        }
+        else
+        {
+            <br />
+            <br />
+            <br />
+            <div class="row">
+                <div class="col-sm-12"> <b style="text-align:center;font-size:xx-large;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;color:deeppink" ;><marquee behavior="scroll" direction="left"> Go for Shopping !!! No product Selected.... </marquee></b></div>
+            </div>
+        }
+    </div>
+
+
+</body>
+</html>
